@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\Role;
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\Image;
 
 class User extends Authenticatable
 {
@@ -24,6 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id'
     ];
 
     /**
@@ -59,5 +61,13 @@ class User extends Authenticatable
 
     public function comments(){
         return $this->hasMany(Comment::class);
+    }
+
+    /**
+     * Get the post's image
+     *
+     */
+    public function image(){
+        return $this->morphOne(Image::class, 'imageable');
     }
 }
