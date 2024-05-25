@@ -32,9 +32,9 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         // role_id
-        $role = Role::where('name', 'user')->first();
+        $role = Role::where('role_name', 'user')->first();
         if($role == null){
-            $role = Role::create(['name' => 'user']);
+            $role = Role::create(['role_name' => 'user']);
             $role_id = $role->id;
         } else {
             $role_id = $role->id;

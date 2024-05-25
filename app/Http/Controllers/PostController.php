@@ -12,7 +12,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        // display all of posts temporarily
+        $posts = Post::all();
+
+        // display of index.blade.php（under posts directory）
+        return view('posts.index');
     }
 
     /**
@@ -20,6 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
+        // display of create.blade.php（under posts directory）
         return view('posts.create');
     }
 
